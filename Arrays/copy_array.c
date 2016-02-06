@@ -30,7 +30,7 @@ void copy_v1(double ar[],double ar2[],int n)
     for(j=0;j<n;j++){
         ar2[j] = ar[j];
         printf("%.1f ", ar2[j]);
-}
+        }
 }
 void copy_v2(double ar[],double ar2[],int n)
 {
@@ -38,5 +38,5 @@ void copy_v2(double ar[],double ar2[],int n)
     for(k=0;k<n;k++){
         ar2[k] = *(ar + k);
         printf("%.1f ", ar2[k]);
-}
+        }
 }
