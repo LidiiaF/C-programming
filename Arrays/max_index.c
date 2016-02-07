@@ -6,11 +6,11 @@ void show_arr(const int ar[], int n);
 
 int main(void)
 {
-    int sourse[LEN] = {5,8,10,6,1,3,7,14,9,4};
+    int source[LEN] = {5,8,10,6,1,3,7,14,9,4};
     int max_i;
 
-    show_arr(sourse, LEN);
-    max_i = max_index(sourse, LEN);
+    show_arr(source, LEN);
+    max_i = max_index(source, LEN);
     printf("%d = index of largest value of the array.\n", max_i);
 
     return 0;

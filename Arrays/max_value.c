@@ -7,12 +7,12 @@ void show_arr(const int ar[], int n);
 
 int main(void)
 {
-    int sourse[LEN] = {5,8,10,6,1,3,7,14,9,4};
+    int source[LEN] = {5,8,10,6,1,3,7,14,9,4};
     int max;
 
-    show_arr(sourse, LEN);
+    show_arr(source, LEN);
     putchar('\n');
-    max = max_val(sourse, LEN);
+    max = max_val(source, LEN);
 
     printf("%d = is largest value of the array\n", max);
 
