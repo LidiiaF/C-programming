@@ -2,6 +2,8 @@
 #define LEN 7
 #define LEN2 3
 
+void copy_el(int s_ar[],int s_ar2[],int n);
+
 int main(void)
 {
     int ar [LEN] = {5,8,9,3,1,6,0};
