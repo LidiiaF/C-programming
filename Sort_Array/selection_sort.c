@@ -6,7 +6,7 @@ int main(void)
     int i,j,n;
     char temp;
     for(i = 0;i < SIZE; i++)
-        for(j = i; j < SIZE;j++){
+        for(j = i; j < (SIZE - 1);j++){
             if(*(arr + i) > *(arr + j + 1))
             {
                 temp = *(arr + i);

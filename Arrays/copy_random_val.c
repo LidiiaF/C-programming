@@ -18,6 +18,9 @@ int main(void)
     putchar('\n');
     sort_ar(ar,NUM);
     show_ar(ar,NUM);
+    putchar('\n');
+    putchar('\n');
+    printf("%d", ar[100]);
 
     return 0;
 }
@@ -45,7 +48,7 @@ void sort_ar(int a[], int n)
     int temp,i,j;
     temp = 0;
     for(i = 0;i < n; i++)
-        for(j = i; j < n;j++)
+        for(j = i; j < (n - 1);j++)
             if(*(a + i) < *(a + j + 1))
             {
                 temp = *(a + i);
