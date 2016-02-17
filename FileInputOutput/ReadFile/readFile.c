@@ -28,10 +28,14 @@ int main(void)
     }
     printf("In the file %d symbols \n",count);
 
-    if(fclose(fp)== EOF)
-        printf("Error closing file\n");
-    else
+
+    if (fclose(fp)== 0)
+    {
+        fclose(fp);
         printf("File closed");
+    }
+    else if(fclose(fp)== EOF)
+        printf("Error closing file\n");
 
     return 0;
 }
