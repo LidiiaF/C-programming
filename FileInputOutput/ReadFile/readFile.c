@@ -29,7 +29,7 @@ int main(void)
     printf("In the file %d symbols \n",count);
 
     if(fclose(fp)== EOF)
-        printf("Error close file\n");
+        printf("Error closing file\n");
     else
         printf("File closed");
 
