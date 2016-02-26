@@ -32,7 +32,8 @@ int main(void)
 
     return 0;
 }
-void addVinArray(char *ar, int n)
+void addVinArray(char *ar, int n)/*Function addVinArray gets pointer of myArray and number in decimal number system
+                                    then convert number from decimal to binary, and writes characters in the array*/
 {
     int i;
     for (i = SIZE - 1; i >= 0; i--)
@@ -44,7 +45,7 @@ void addVinArray(char *ar, int n)
             }
     ar[SIZE] = '\0';
 }
-void showArray(char *ar)
+void showArray(char *ar)/*Function showArray gets pointer of myArray and shows characters from the array*/
 {
     int j;
     for(j = 0; j < SIZE; j++)
@@ -54,14 +55,16 @@ void showArray(char *ar)
         printf("%c",ar[j]);
         }
 }
-void resultArray(char *ar, char *ar2, int m)
+void resultArray(char *ar, char *ar2, int m)/*Function showArray gets pointer of myArray, pointer of tempArray and number of bit, then
+                                           is's copying the bits from tempArray to myArray*/
 {
     int i;
     int j;
     for(i = SIZE - m, j = 0; i < SIZE; i++, j++)
         ar[i] = ar2[j];
 }
-void newArray(char *ar, char *ar2, int m)
+void newArray(char *ar, char *ar2, int m)/*Function showArray gets pointer of myArray, pointer of tempArray and number of bit, and then
+                                        it's copying bits from myArray to tempArray*/
 {
     int i;
 
