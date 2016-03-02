@@ -12,7 +12,7 @@ int main(void)
 
         for (i = size - 1; i >= 0; i--)
         {
-            if(j % 4 == 0 && j!=0)
+            if(j % 4 == 0 && j != 0)
                 putchar(' ');
             n = m >> i;
             ch = (1 & n) + '0';
@@ -21,4 +21,3 @@ int main(void)
         }
     return 0;
 }
-
