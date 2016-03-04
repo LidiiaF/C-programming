@@ -14,7 +14,7 @@ int main(void)
 
     printf("Enter numbers, q for end of input:\n");
 
-    /*Initialize a list*/
+    /*Initialize a linked list*/
     while(scanf("%d", &n) == 1)
     {
         while(getchar() != '\n')
@@ -32,12 +32,13 @@ int main(void)
     while(getchar() != '\n')
             continue;
 
-    /*Show a list*/
+    /*Show a linked list*/
     if (head == NULL)
     {
         printf("No data entered.");
         exit(1);
     }
+
     printf ("Linked list:\n");
 
     current = head;
@@ -48,7 +49,7 @@ int main(void)
     }
     putchar('\n');
 
-    /*Add elements to the tail of a list*/
+    /*Add elements to the tail of a linked list*/
     printf("Enter numbers that you would like add to the list, q for end of input:\n");
 
     prev = tail;
@@ -64,8 +65,7 @@ int main(void)
         prev = current;
     }
 
-    /*Show a list*/
-
+    /*Show a linked list*/
     printf ("Linked list with added elements:\n");
     current = head;
     while (current != NULL)
@@ -75,7 +75,7 @@ int main(void)
     }
     putchar('\n');
 
-    /*Reverse a list*/
+    /*Reverse a linked list*/
     printf("Reverse of the linked list:\n");
 
     current = head;
@@ -89,7 +89,7 @@ int main(void)
     }
     head = prev;
 
-    /*Show a reversed list*/
+    /*Show a reversed linked list*/
     current = head;
     while (current != NULL)
     {
