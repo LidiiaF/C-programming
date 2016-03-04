@@ -8,6 +8,7 @@ struct node {
 int main(void)
 {
     struct node *head = NULL;
+    struct node *tail = NULL;
     struct node *current, *prev, *nextnode;
     int n;
 
@@ -23,11 +24,14 @@ int main(void)
             head = current;
         else
             prev->next = current;
-
+        tail = prev->next;
         current->next = NULL;
         current->val = n;
         prev = current;
     }
+    while(getchar() != '\n')
+            continue;
+
     /*Show a list*/
     if (head == NULL)
     {
@@ -44,8 +48,35 @@ int main(void)
     }
     putchar('\n');
 
+    /*Add elements to the tail of a list*/
+    printf("Enter numbers that you would like add to the list, q for end of input:\n");
+
+    prev = tail;
+
+    while(scanf("%d", &n) == 1)
+    {
+        while(getchar() != '\n')
+            continue;
+        current = (struct node *) malloc(sizeof(struct node));
+        prev->next = current;
+        current->next = NULL;
+        current->val = n;
+        prev = current;
+    }
+
+    /*Show a list*/
+
+    printf ("Linked list with added elements:\n");
+    current = head;
+    while (current != NULL)
+    {
+        printf("Address %p: value = %d, next address = %p\n", current, current->val, current->next);
+        current = current->next;
+    }
+    putchar('\n');
+
     /*Reverse a list*/
-    printf("Linked list reverse:\n");
+    printf("Reverse of the linked list:\n");
 
     current = head;
     prev = NULL;
@@ -70,9 +101,9 @@ int main(void)
     current = head;
     while (current != NULL)
     {
-        prev = current->next;
+        nextnode = current->next;
         free(current);
-        current = prev;
+        current = nextnode;
     }
     putchar('\n');
 
