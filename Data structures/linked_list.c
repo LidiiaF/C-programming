@@ -9,27 +9,31 @@ int main(void)
 {
     struct node *head = NULL;
     struct node *current, *prev, *nextnode;
-    int n = 5;
+    int n;
 
-    printf("Enter 5 numbers:\n");
+    printf("Enter numbers, q for end of input:\n");
 
     /*Initialize a list*/
-    while(n > 0)
+    while(scanf("%d", &n) == 1)
     {
+        while(getchar() != '\n')
+            continue;
         current = (struct node *) malloc(sizeof(struct node));
         if (head == NULL)
             head = current;
         else
             prev->next = current;
-        current->next = NULL;
-        scanf("%d", &current->val);
 
-        while(getchar() != '\n')
-            continue;
+        current->next = NULL;
+        current->val = n;
         prev = current;
-        n--;
     }
     /*Show a list*/
+    if (head == NULL)
+    {
+        printf("No data entered.");
+        exit(1);
+    }
     printf ("Linked list:\n");
 
     current = head;
