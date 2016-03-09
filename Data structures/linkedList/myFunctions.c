@@ -72,6 +72,13 @@ struct node * deleteNode(struct node *ptr, int n)
         {
         if(ptr->val == n)
         {
+            if(ptr == head && ptr->next == NULL)
+            {
+                free(ptr);
+                ptr = NULL;
+                head = ptr;
+                continue;
+            }
             if(ptr == head)
             {
                 current = ptr->next;
