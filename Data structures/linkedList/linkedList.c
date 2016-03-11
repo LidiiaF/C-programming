@@ -15,15 +15,19 @@ int main(void)
     addNodeInList(myList,3);
     addNodeInList(myList,10);
 
-    printf("\nIn a linked list added 5 nodes:\n");
+    printf("\nIn a linked list added %d nodes:\n", countNodesInList(myList));
+    showList(myList);
+
+    myList = removeNodeInList(myList, 2);
+    printf("\nNow in the linked list %d nodes:\n", countNodesInList(myList));
     showList(myList);
 
     myList = reverseList(myList);
     printf("\nReverse a linked list:\n");
     showList(myList);
 
-    myList = deleteNode(myList,10);
-    printf("\nDelete node from a linked list:\n");
+    myList = removeNodeByVal(myList,10);
+    printf("\nNow in the linked list %d nodes:\n", countNodesInList(myList));
     showList(myList);
 
     myList = clearList(myList);

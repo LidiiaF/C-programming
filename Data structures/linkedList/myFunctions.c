@@ -21,21 +21,21 @@ struct node * addNodeInList(struct node *ptr, int n)
 {
     struct node *current;
     if(ptr == NULL)
-        ptr = createNode(n);
+        ptr = initNode(n);
 
     else
     {
         current = ptr;
         while(current->next != NULL)
             current = current->next;
-        current->next = createNode(n);
+        current->next = initNode(n);
     }
 
     return ptr;
 }
 
-/*Create a Node*/
-struct node * createNode(int n)
+/*Initialize a node*/
+struct node * initNode(int n)
 {
   struct node *current;
     current = (struct node *)malloc(sizeof(struct node));
@@ -57,8 +57,8 @@ struct node * clearList(struct node *ptr)
     return ptr;
 }
 
-/*Delete a Node*/
-struct node * deleteNode(struct node *ptr, int n)
+/*Remove a Node by value of element*/
+struct node * removeNodeByVal(struct node *ptr, int n)
 {
     struct node *current, *prev, *head;
     head = ptr;
@@ -123,4 +123,67 @@ struct node * reverseList(struct node *ptr)
     }
     ptr = prev;
     return ptr;
+}
+
+/*Count number of nodes in the list*/
+int countNodesInList(struct node *ptr)
+{
+    int count;
+    count = 0;
+    while(ptr != NULL)
+    {
+        count++;
+        ptr = ptr->next;
+    }
+    return count;
+}
+/*Remove node in the list by element*/
+struct node * removeNodeInList(struct node *ptr, int n)
+{
+    struct node *head, *prev;
+    int count;
+    count = 0;
+    head = ptr;
+    prev = NULL;
+
+    if(ptr == NULL)
+    {
+        printf("List is empty.\n");
+        return ptr;
+    }
+
+    if(n > countNodesInList(ptr) || n <= 0 || n >= countNodesInList(ptr))
+    {
+        printf("Range of elements in the list between %d and %d.\n",count, countNodesInList(ptr));
+        return ptr;
+    }
+    while(count != n)
+    {
+        prev = ptr;
+        ptr = ptr->next;
+        count++;
+    }
+
+    if(ptr == head && ptr->next == NULL)
+        {
+        free(ptr);
+        head = NULL;
+        }
+    else if(ptr == head)
+        {
+        head = ptr->next;
+        free(ptr);
+        }
+    else if(ptr->next == NULL)
+        {
+        prev->next = NULL;
+        free(ptr);
+        }
+    else
+        {
+        prev->next = ptr->next;
+        free(ptr);
+        }
+
+    return head;
 }
