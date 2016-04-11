@@ -3,7 +3,7 @@
 #define MAX 10
 
 void push(char n);
-void pop(void);
+char pop(void);
 int checkPrecedence(char n);
 int compareTwoOper(char n);
 
@@ -12,9 +12,9 @@ int top = -1;
 
 int main(void)
 {
-    char ch;
+    char ch, ph;
 
-    printf("Infix to postfix conversion.\nEnter infix expression and press Enter, for exit press q:\n");
+    printf("Infix to postfix conversion.\nEnter infix expression and press Enter (For exit press q):\n");
 
      while((ch = getchar()) != 'q')
      {
@@ -22,10 +22,10 @@ int main(void)
         {
             while(top >= 0)
             {
-                putchar(stack[top]);
-                pop();
+                ph = pop();
+                putchar(ph);
             }
-            printf("\nEnter next infix expression and press Enter, for exit press q:\n");
+            printf("\nEnter next infix expression and press Enter (For exit press q):\n");
         }
         else if(isdigit(ch))// If ch is character of a number print a number.
         {
@@ -45,8 +45,8 @@ int main(void)
                 {
                     while(compareTwoOper(ch) == 0 && top >= 0)
                     {
-                        putchar(stack[top]);
-                        pop();
+                        ph = pop();
+                        putchar(ph);
                     }
 
 
@@ -63,8 +63,8 @@ int main(void)
     return 0;
 }
 
-/*Function Push increases size of a stack
-and adds element from input into the stack.*/
+/*Function Push increases size of a stack and adds
+element from input into the stack.*/
 void push(char n)
 {
     top++;
@@ -72,11 +72,15 @@ void push(char n)
 
 }
 
-/*Function Pop decreases size of a stack.*/
+/*Function Pop decreases size of a stack and returns
+ element which was removed from the stack*/
 
-void pop(void)
+char pop(void)
 {
+    char ch;
+    ch = stack[top];
     top--;
+    return ch;
 }
 
 /*Function checkPrecedence accepts character of an operator
